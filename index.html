@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous" />
+   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+   <script defer src="app.js"></script>
+</head>
+
+<body>
+   <section class="container">
+      <form class="form js-form">
+         <fieldset class="converter">
+            <legend class="converter__name">
+               Currency converter
+            </legend>
+            <p>
+               <label class="converter__amount">
+                  <span class="converter__label">How much <strong>PLN</strong> do You want to exchange?</span>
+                  <input name="amount" class="converter__amountValue js-value" type="number" min="1" step="1"
+                     placeholder="Enter the amount" required>
+               </label>
+               </>
+            <p>
+               <label class="converter__currency">
+                  <span class="converter__label">Choose the currency You want:</span>
+                  <select name="currencyList" class="converter__currencyList js-currencyList">
+                     <option value="eur">EUR</option>
+                     <option value="usd">USD</option>
+                     <option value="nok">NOK</option>
+                     <option value="rub">RUB</option>
+                     <option value="gbp">GBP</option>
+                  </select>
+               </label>
+            </p>
+            <button class="converter__convertBtn">Let's see...</button>
+         </fieldset>
+      </form>
+      <p class="converter__result js-result">
+      </p>
+      <footer class="footer">
+         <p class="footer__statement">Currency exchange courses based on <a class="footer__link"
+               href="https://kursy-walut.mybank.pl/" target="_blanc">kursy-walut.mybank.pl</a> from day
+            4.07.2020
+         </p>
+         <p class="footer__credits">
+            © Kamil Szewczyk 2020
+         </p>
+      </footer>
+   </section>
+</body>
+
+</html>
