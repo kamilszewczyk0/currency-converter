@@ -1,44 +1,51 @@
-const form = document.querySelector(".js-form");
-const amount = document.querySelector(".js-value");
-const currencyChosen = document.querySelector(".js-currencyList");
-const result = document.querySelector(".js-result");
+{
+  const amount = document.querySelector(".js-value");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  const calculateResult = (amount, currency) => {
+    const priceEUR = 4.4671;
+    const priceUSD = 3.9764;
+    const priceNOK = 0.4183;
+    const priceRUB = 0.0564;
+    const priceGBP = 4.956;
 
-  const priceEUR = 4.4671;
-  const priceUSD = 3.9764;
-  const priceNOK = 0.4183;
-  const priceRUB = 0.0564;
-  const priceGBP = 4.956;
+    const amountValue = amount.value;
+    switch (currency) {
+      case "eur":
+        return amountValue / priceEUR;
 
-  const amountValue = amount.value;
-  const currency = currencyChosen.value;
-  let sum;
+      case "usd":
+        return amountValue / priceUSD;
 
-  switch (currency) {
-    case "eur":
-      sum = amountValue / priceEUR;
-      break;
+      case "nok":
+        return amountValue / priceNOK;
 
-    case "usd":
-      sum = amountValue / priceUSD;
-      break;
+      case "rub":
+        return amountValue / priceRUB;
 
-    case "nok":
-      sum = amountValue / priceNOK;
-      break;
+      case "gbp":
+        return amountValue / priceGBP;
+    }
+  };
 
-    case "rub":
-      sum = amountValue / priceRUB;
-      break;
+  const onFormSubmit = (event) => {
+    event.preventDefault();
 
-    case "gbp":
-      sum = amountValue / priceGBP;
-      break;
-  }
+    const currencyChosen = document.querySelector(".js-currencyList");
+    const result = document.querySelector(".js-result");
+    const amountValue = amount.value;
+    const currency = currencyChosen.value;
 
-  result.innerHTML = `From <strong>${amountValue} PLN</strong> You will receive <strong>${sum.toFixed(
-    2
-  )} ${currency.toUpperCase()}</strong>.`;
-});
+    let sum = calculateResult(amount, currency);
+
+    result.innerHTML = `From <strong>${amountValue} PLN</strong> You will receive <strong>${sum.toFixed(
+      2
+    )} ${currency.toUpperCase()}</strong>.`;
+  };
+
+  const init = () => {
+    const form = document.querySelector(".js-form");
+
+    form.addEventListener("submit", onFormSubmit);
+  };
+  init();
+}
