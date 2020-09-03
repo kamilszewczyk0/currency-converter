@@ -23,7 +23,7 @@ html {
 
 .converter {
   padding: 30px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.712)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgb(0, 0, 0)),
     url("./images/converter__background.jpg");
   background-position: center;
   background-size: cover;
